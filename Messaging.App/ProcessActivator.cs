@@ -57,6 +57,7 @@ namespace Messaging.App
                 }
                 catch (Exception ex)
                 {
+                    throw;
                 }
                 finally
                 {

@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging.App", "Messaging.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging.App.Abstractions", "Messaging.App.Abstractions\Messaging.App.Abstractions.csproj", "{A5F5F393-9D05-4716-89BD-30F2BE67296F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Html", "Html", "{8B680D77-1314-48AC-BF49-1749E99F3679}"
+	ProjectSection(SolutionItems) = preProject
+		Html\index.html = Html\index.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
