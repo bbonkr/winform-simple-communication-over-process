@@ -20,8 +20,28 @@ namespace Messaging.App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ProcessActivator activator = new ProcessActivator();
-            var data = activator.GetParameter();
+            ProcessActivator activator = null;
+            try
+            {
+                activator = new ProcessActivator();
+            }
+            catch (Exception ex)
+            {
+                activator = null;
+            }
+
+            string data = null;
+            if (activator != null)
+            {
+                try
+                {
+                    data = activator.GetParameter();
+                }
+                catch (Exception ex)
+                {
+                    data = null;
+                }
+            }
 
             // 하나의 프로세스만 실행되도록 합니다.
             bool isNewInstance = false;

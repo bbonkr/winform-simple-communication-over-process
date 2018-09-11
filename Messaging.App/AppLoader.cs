@@ -34,6 +34,8 @@ namespace Messaging.App
 
         private void LoadMainType()
         {
+            ShowProcessInfo();
+
             NativeMethods.CHANGEFILTERSTRUCT changeFilter = new NativeMethods.CHANGEFILTERSTRUCT();
             changeFilter.size = (uint)Marshal.SizeOf(changeFilter);
             changeFilter.info = 0;
@@ -47,8 +49,10 @@ namespace Messaging.App
                 MessageBox.Show(String.Format("The error {0} occurred.", error));
             }
 
-            SendMessage(data);
-
+            if (!String.IsNullOrEmpty(data))
+            {
+                SendMessage(data);
+            }
             // 윈도우가 보이지 않으면 핸들을 가져오지 못합니다.
             //this.Hide();
         }
@@ -82,6 +86,15 @@ namespace Messaging.App
             {
                 base.WndProc(ref m);
             }
+        }
+
+        private void ShowProcessInfo()
+        {
+            var proc = Process.GetCurrentProcess();
+
+            var display = $"{ proc.ProcessName } : { proc.Id }";
+
+            this.textBox2.Text = display;
         }
 
         private readonly string data;
